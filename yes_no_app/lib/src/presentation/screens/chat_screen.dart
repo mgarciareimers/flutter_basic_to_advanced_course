@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+
+// Widgets.
 import 'package:yes_no_app/src/presentation/widgets/chat/item_list_chat.dart';
+import 'package:yes_no_app/src/presentation/widgets/generic/message_field_box.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -40,6 +43,7 @@ class _ChatView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: 100,
                 itemBuilder: (BuildContext context, int index) => ItemListChat(
                   index: index,
@@ -48,6 +52,8 @@ class _ChatView extends StatelessWidget {
               )
             ),
 
+            const MessageFieldBox(),
+            const SizedBox(height: 10)
           ],
         ),
       ),
